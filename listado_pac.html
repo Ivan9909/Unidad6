@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mi página web</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <nav>
+		<ul class="menu-horizontal">
+			<li><a href="#">Inicio</a></li>
+			<li>
+				<a href="#">Formularios</a>
+				<ul class="menu-vertical">
+					<li><a href="formulario_pac.html" >Paciente</a></li>
+					<li><a href="formulario_doc.html">Doctor</a></li>
+				</ul>
+			</li>
+      <li>
+				<a href="#">Listados</a>
+				<ul class="menu-vertical">
+					<li><a href="listado_pac.html" >Pacientes</a></li>
+					<li><a href="listado_doc.html">Doctores</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Contacto</a></li>
+		</ul>
+	</nav>
+    <div class="container_form">
+      <div class="info">
+      <h1>Listado de Pacientes</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Número de Cédula</th>
+            <th>Edad</th>
+            <th>Teléfono</th>
+            <th>Especialidad Requerida</th>
+          </tr>
+        </thead>
+      <tbody id="patient-list"></tbody>
+      </table>
+      </div>
+    </div>
+    <script>
+      function loadPatients() {
+        fetch('patients.json')
+          .then(response => response.json())
+          .then(data => displayPatients(data))
+          .catch(error => console.error('Error al cargar los datos de pacientes:', error));
+      }
+      function displayPatients(patients) {
+        const patientList = document.getElementById('patient-list');
+        for (const patient of patients) {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${patient.name}</td>
+            <td>${patient.lastname}</td>
+            <td>${patient.cedula}</td>
+            <td>${patient.age}</td>
+            <td>${patient.phone}</td>
+            <td>${patient.specialty}</td>
+          `;
+          patientList.appendChild(row);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', loadPatients);
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mi página web</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <nav>
+		<ul class="menu-horizontal">
+			<li><a href="#">Inicio</a></li>
+			<li>
+				<a href="#">Formularios</a>
+				<ul class="menu-vertical">
+					<li><a href="formulario_pac.html" >Paciente</a></li>
+					<li><a href="formulario_doc.html">Doctor</a></li>
+				</ul>
+			</li>
+      <li>
+				<a href="#">Listados</a>
+				<ul class="menu-vertical">
+					<li><a href="listado_pac.html" >Pacientes</a></li>
+					<li><a href="listado_doc.html">Doctores</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Contacto</a></li>
+		</ul>
+	</nav>
+    <div class="container_form">
+      <form id="doctor-form" class="form">
+        <label for="doctor-name">Nombre:</label>
+        <input type="text" id="doctor-name" required>
+        <br>
+        <label for="doctor-lastname">Apellido:</label>
+        <input type="text" id="doctor-lastname" required>
+        <br>
+        <label for="doctor-cedula">Número de Cédula:</label>
+        <input type="text" id="doctor-cedula" required>
+        <br>
+        <label for="doctor-specialty">Especialidad:</label>
+        <select id="doctor-specialty" required>
+          <option value="">Seleccione una especialidad</option>
+          <option value="Medicina general">Medicina general</option>
+          <option value="Cardiología">Cardiología</option>
+          <option value="Medicina interna">Medicina interna</option>
+          <option value="Dermatología">Dermatología</option>
+          <option value="Rehabilitación física">Rehabilitación física</option>
+          <option value="Psicología">Psicología</option>
+          <option value="Odontología">Odontología</option>
+          <option value="Radiología">Radiología</option>
+        </select>
+        <br>
+        <label for="doctor-consultorio">Consultorio:</label>
+        <input type="text" id="doctor-consultorio" required>
+        <br>
+        <label for="doctor-email">Correo de contacto:</label>
+        <input type="email" id="doctor-email" required>
+        <br>
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+    <script src="doctor.js"></script>
+</body>
+</html>
